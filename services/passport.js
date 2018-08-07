@@ -16,9 +16,9 @@ const localLogin = new LocalStrategy(localOptions, (email, password, done) => {
   .then((validUser) => {
     let userConfirmed = done(null, validUser); 
     let userNotConfirmed = done(null, false); 
-    let error = done(err, false); 
-    comparePass(password, validUser.password, userConfirmed, userNotConfirmed, error)
+    comparePass(password, validUser.password, userConfirmed, userNotConfirmed)
   })
+  .catch(err => done(err, false));
 });
 
 /// Setup options for JWT Passport Strategy

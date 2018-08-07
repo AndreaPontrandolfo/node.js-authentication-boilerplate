@@ -1,4 +1,5 @@
 const db = require('../db/connection');
+const logger = require('../logger');
 
 const createUser = (username, email, password) => {
     const query = `
@@ -7,7 +8,7 @@ const createUser = (username, email, password) => {
     VALUES ($1, $2, $3)
     RETURNING *
     `
-    console.log("Creating user...");
+    logger.info("Creating user...");
     return db.one(query, [username, email, password])
 }
 
