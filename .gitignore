@@ -62,4 +62,4 @@ config.js
 .next
 
 # sql scripts
-schema.sql
+.sql
