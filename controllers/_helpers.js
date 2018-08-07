@@ -17,6 +17,7 @@ function hashPass(username, email, password, givingTokenToUser, userNotSaved, ca
     console.log("Hashing passwords...");
     bcrypt.hash(password, 10)
     .then((hash) => {
+      console.log((`password: ${password}, hash: ${hash}`));
       return createUser(username, email, hash)
       .then(givingTokenToUser)
       .catch(userNotSaved)
