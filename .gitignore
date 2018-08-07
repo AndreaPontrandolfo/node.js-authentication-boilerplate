@@ -60,3 +60,6 @@ config.js
 
 # next.js build output
 .next
+
+# sql scripts
+schema.sql
