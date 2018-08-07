@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const logger = require('./logger');
-const basicRoutes = require('./router/routes');
+const authRoutes = require('./router/routes');
 const cors = require('cors');
 
 const app = express();
@@ -36,7 +36,7 @@ app.use(
 app.use(express.static(path.join(__dirname + '/authentication')));
 
 /// use routes
-app.use('/basicRoutes', basicRoutes);
+app.use('/', authRoutes);
 
 const port = process.env.PORT || 3090;
 app.listen(port, () => {
