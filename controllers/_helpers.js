@@ -1,8 +1,9 @@
 const bcrypt = require('bcryptjs');
 const {createUser} = require('../actions/signUp');
+const logger = require('../logger');
 
 function comparePass(userPassword, databasePassword, userIsValid, userIsNotValid, error) {
-    console.log("Comparing passwords...");
+    logger.info("Comparing passwords...");
   return bcrypt.compare(userPassword, databasePassword)
   .then((validPassword) => {
       if (validPassword) {
@@ -14,10 +15,10 @@ function comparePass(userPassword, databasePassword, userIsValid, userIsNotValid
 }
 
 function hashPass(username, email, password, givingTokenToUser, userNotSaved, catchingError) {
-    console.log("Hashing passwords...");
+    logger.info("Hashing passwords...");
     bcrypt.hash(password, 10)
     .then((hash) => {
-      console.log((`password: ${password}, hash: ${hash}`));
+      logger.debug(`password: ${password}, hash: ${hash}`);
       return createUser(username, email, hash)
       .then(givingTokenToUser)
       .catch(userNotSaved)

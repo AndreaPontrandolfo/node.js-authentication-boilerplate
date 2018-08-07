@@ -15,7 +15,7 @@
     "bcryptjs": "^2.4.3",
     "body-parser": "*",
     "cors": "^2.8.4",
-    "express": "*",
+    "express": "^4.16.3",
     "jwt-simple": "*",
     "mongoose": "*",
     "morgan": "*",
@@ -23,6 +23,7 @@
     "passport": "*",
     "passport-jwt": "*",
     "passport-local": "*",
-    "pg-promise": "^8.4.5"
+    "pg-promise": "^8.4.5",
+    "winston": "^3.0.0"
   }
 }
